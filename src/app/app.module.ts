@@ -1,28 +1,32 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { httpInterceptor } from './interceptor/httpInterceptor';
+import { AuthGuardGuard } from './components/auth/authGuard.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ShellComponent } from './components/shell/shell.component';
-import { BookListComponent } from './components/book/book-list/book-list.component';
-import { AddBookComponent } from './components/book/add-book/add-book.component';
-import { BookDetailComponent } from './components/book/book-detail/book-detail.component';
+import { PersonListComponent } from './components/person/person-list/person-list.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ShellComponent,
-    BookListComponent,
-    AddBookComponent,
-    BookDetailComponent
+    PersonListComponent,
+    LoginComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi: true }, AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,26 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddBookComponent } from './components/book/add-book/add-book.component';
-import { BookDetailComponent } from './components/book/book-detail/book-detail.component';
-import { BookListComponent } from './components/book/book-list/book-list.component';
+import { AuthGuardGuard } from './components/auth/authGuard.guard';
+import { LoginComponent } from './components/login/login.component';
+import { PersonListComponent } from './components/person/person-list/person-list.component';
 import { ShellComponent } from './components/shell/shell.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path:'',
     component: ShellComponent,
     children: [
       {
-        path:'book/list',
-        component: BookListComponent
+        path:'person/list',
+        canActivate: [AuthGuardGuard],
+        component: PersonListComponent
       },
       {
-        path:'book/add',
-        component: AddBookComponent
-      },
-      {
-        path:'book/detail',
-        component: BookDetailComponent
+        path:'',
+        canActivate: [AuthGuardGuard],
+        component: PersonListComponent
       }
     ]
   }
