@@ -10,8 +10,8 @@ import { User } from '../model/user';
 })
 export class AuthService {
 
-  loginUrl:string = 'http://localhost:3000/api/login';
-  loggedInUserUrl:string = 'http://localhost:3000/api/me';
+  loginUrl:string = 'http://34.136.57.140:3000/api/login';
+  loggedInUserUrl:string = 'http://34.136.57.140:3000/api/me';
 
   constructor(private http: HttpClient) { }
 

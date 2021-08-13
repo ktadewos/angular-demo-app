@@ -10,7 +10,7 @@ import { ApiListResponse } from '../model/common.model';
 })
 export class PersonService {
 
-  personUrl:string = 'http://localhost:3000/api/persons';
+  personUrl:string = 'http://34.136.57.140:3000/api/persons';
 
   constructor(private http:HttpClient) { }
 
