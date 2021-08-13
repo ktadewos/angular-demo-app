@@ -4,17 +4,18 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { ApiListResponse } from '../model/common.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
 
-  personUrl:string = 'http://34.136.57.140:3000/api/persons';
+  baseUrl: string = environment.API;
 
   constructor(private http:HttpClient) { }
 
   getUsers(): Observable<any> {
-    return this.http.get(this.personUrl).pipe((map((res:ApiListResponse) => res.result)));
+    return this.http.get(this.baseUrl + 'api/persons').pipe((map((res:ApiListResponse) => res.result)));
   }
 }

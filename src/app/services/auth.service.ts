@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { ApiResponse } from '../model/common.model';
 import { User } from '../model/user';
 
@@ -10,20 +11,19 @@ import { User } from '../model/user';
 })
 export class AuthService {
 
-  loginUrl:string = 'http://34.136.57.140:3000/api/login';
-  loggedInUserUrl:string = 'http://34.136.57.140:3000/api/me';
+  baseUrl: string = environment.API;
 
   constructor(private http: HttpClient) { }
 
   login(user: User): Observable<any> {
-    return this.http.post(this.loginUrl, user).pipe((map((res:ApiResponse) => res.result)));
+    return this.http.post(this.baseUrl + 'api/login', user).pipe((map((res:ApiResponse) => res.result)));
   }
 
   getAccessToken() {
     return localStorage.getItem('token')
   }
   getCurrentUserApi(): Observable<any> {
-    return this.http.get(this.loggedInUserUrl).pipe((map((res: ApiResponse) => res.result)));
+    return this.http.get(this.baseUrl + 'api/me').pipe((map((res: ApiResponse) => res.result)));
   }
 
   isloggedIn(){
