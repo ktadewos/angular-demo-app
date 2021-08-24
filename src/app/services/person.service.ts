@@ -26,7 +26,7 @@ export class PersonService {
   }
 
   updatePerson(person:Person):Observable<any>{
-    return this.http.put(this.baseUrl + 'api/persons',person).pipe((map((res:ApiResponse) =>
+    return this.http.put(this.baseUrl + 'api/persons/' + person._id,person).pipe((map((res:ApiResponse) =>
        res.result
     )))
   }

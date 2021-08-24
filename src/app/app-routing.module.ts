@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardGuard } from './components/auth/authGuard.guard';
 import { LoginComponent } from './components/login/login.component';
 import { PersonAddComponent } from './components/person/person-add/person-add.component';
+import { PersonEditComponent } from './components/person/person-edit/person-edit.component';
 import { PersonListComponent } from './components/person/person-list/person-list.component';
 import { ShellComponent } from './components/shell/shell.component';
 
@@ -24,6 +25,11 @@ const routes: Routes = [
         path:'person/add',
         canActivate: [AuthGuardGuard],
         component: PersonAddComponent
+      },
+      {
+        path:'person/edit/:id',
+        canActivate: [AuthGuardGuard],
+        component: PersonEditComponent
       },
       {
         path:'',

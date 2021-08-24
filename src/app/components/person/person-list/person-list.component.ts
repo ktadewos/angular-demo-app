@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PersonService} from '../../../services/person.service';
 import {Person} from '../../../model/person';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person-list',
@@ -11,7 +12,7 @@ export class PersonListComponent implements OnInit {
 
   persons: Person[] = [];
 
-  constructor(private personService:PersonService) { }
+  constructor(private personService:PersonService, private route:Router) { }
 
   ngOnInit(): void {
      this.personService.getPersons().subscribe(persons => {
@@ -24,6 +25,10 @@ export class PersonListComponent implements OnInit {
        console.log('item deleted');
        location.reload();
      })
+  }
+
+  editPerson(person:Person){
+    this.route.navigate(['/person/edit', person._id]);
   }
 
 }

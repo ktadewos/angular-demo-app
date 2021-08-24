@@ -14,6 +14,7 @@ import { PersonAddComponent } from './components/person/person-add/person-add.co
 import { LoginComponent } from './components/login/login.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PersonEditComponent } from './components/person/person-edit/person-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     ShellComponent,
     PersonListComponent,
     LoginComponent,
-    PersonAddComponent
+    PersonAddComponent,
+    PersonEditComponent
   ],
   imports: [
     HttpClientModule,

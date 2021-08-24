@@ -16,7 +16,10 @@
         <td>{{person.firstName}}</td>
         <td>{{person.lastName}}</td>
         <td>{{person.phoneNumber}}</td>
-        <td><button (click)="deletePerson(person._id)" class="btn"><i class="fa fa-trash"></i></button></td>
+        <td>
+          <button (click)="deletePerson(person._id)" class="btn"><i class="fa fa-trash"></i></button>
+          <button (click)="editPerson(person)" class="btn"><i class="fa fa-edit"></i></button>
+        </td>
       </tr>
     </tbody>
   </table>
