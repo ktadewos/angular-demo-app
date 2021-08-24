@@ -13,6 +13,8 @@ import { PersonListComponent } from './components/person/person-list/person-list
 import { PersonAddComponent } from './components/person/person-add/person-add.component';
 import { LoginComponent } from './components/login/login.component';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,7 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi: true }, AuthGuardGuard],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi: true },{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
