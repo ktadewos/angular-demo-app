@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardGuard } from './components/auth/authGuard.guard';
 import { LoginComponent } from './components/login/login.component';
+import { PersonAddComponent } from './components/person/person-add/person-add.component';
 import { PersonListComponent } from './components/person/person-list/person-list.component';
 import { ShellComponent } from './components/shell/shell.component';
 
@@ -18,6 +19,11 @@ const routes: Routes = [
         path:'person/list',
         canActivate: [AuthGuardGuard],
         component: PersonListComponent
+      },
+      {
+        path:'person/add',
+        canActivate: [AuthGuardGuard],
+        component: PersonAddComponent
       },
       {
         path:'',

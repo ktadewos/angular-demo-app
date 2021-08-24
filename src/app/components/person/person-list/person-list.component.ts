@@ -14,10 +14,16 @@ export class PersonListComponent implements OnInit {
   constructor(private personService:PersonService) { }
 
   ngOnInit(): void {
-     this.personService.getUsers().subscribe(persons => {
-       console.log(persons)
+     this.personService.getPersons().subscribe(persons => {
        this.persons = persons;
      });
+  }
+
+  deletePerson(id:any) {
+     this.personService.deletePerson(id).subscribe(person => {
+       console.log('item deleted');
+       location.reload();
+     })
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
   <div class="main">
     <div class="loginwrapper">
       <div class="box">
@@ -39,6 +39,42 @@
 
     </div>
   </div>
-</div>
+</div> -->
+
+
+
+        <div id="wrapper">
+            <div id="header">
+                <div id="system-identity">
+                    <h1 class="system-name"><a href="/">LOGO</a></h1>
+                    <span class="detailed-name"><a href="/">demo system title</a></span>
+                </div>
+            </div>
+            <div id="middle">
+                <div id="login">
+                    <div id="login-box-header" >
+                        <span>Please Login</span>
+                    </div>
+                    <div id="login-form">
+                        <form action="#" method="post">
+                            <p>
+                                <label for="inputEmail3">Email:</label>
+                                <input type="email" name="inputEmail3"  [(ngModel)]="user.email" placeholder="Email">
+                            </p>
+                            <p>
+                                <label for="inputPassword3">Password:</label>
+                                <input type="password" name="inputPassword3" [(ngModel)]="user.password" placeholder="Password">
+                            </p>
+                            <p id="login-button">
+                                <input type="submit" name="btnLogin"  (click)="login()" value="Sign in">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <span>Copy Right</span>
+            </div>
+        </div>
 
 

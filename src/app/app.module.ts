@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { PersonListComponent } from './components/person/person-list/person-list.component';
+import { PersonAddComponent } from './components/person/person-add/person-add.component';
 import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LoginComponent } from './components/login/login.component';
     HeaderComponent,
     ShellComponent,
     PersonListComponent,
-    LoginComponent
+    LoginComponent,
+    PersonAddComponent
   ],
   imports: [
     HttpClientModule,

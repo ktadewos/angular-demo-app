@@ -1,5 +1,5 @@
 
-<nav id="nav-header" class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav id="nav-header" class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Logo</a>
 
     <ul class="navbar-nav mr-auto">
@@ -11,4 +11,15 @@
       <a class="nav-link">User logged in as {{user.email}}</a>
       <a class="nav-link" (click)="logout()">Sign Out</a>
 
-  </nav>
+  </nav> -->
+
+  <div id="header">
+    <div id="system-identity">
+        <h1 class="system-name"><a href="/">LOGO</a></h1>
+        <span class="detailed-name"><a href="/">demo system title</a></span>
+    </div>
+</div>
+<div id="login-status">
+  <span>{{user.email}}</span> |
+  <a (click)="logout()">Logout</a>
+</div>
