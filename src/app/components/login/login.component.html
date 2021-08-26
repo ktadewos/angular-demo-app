@@ -56,6 +56,7 @@
                         <span>Please Login</span>
                     </div>
                     <div id="login-form">
+                        <p id="errorMessage" *ngIf="errormsg">{{errormsg}}</p>
                         <form action="#" method="post">
                             <p>
                                 <label for="inputEmail3">Email:</label>

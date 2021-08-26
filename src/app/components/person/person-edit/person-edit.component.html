@@ -3,21 +3,21 @@
       <span>Edit Person</span>
   </div>
   <div id="login-form">
-      <form action="#" method="post">
+      <form action="#" method="post" #editFrom="ngForm" ngNativeValidate>
           <p>
               <label for="inputEmail">First Name:</label>
-              <input type="text" name="firstName"  [(ngModel)]="person.firstName" placeholder="enter first name">
+              <input required type="text" name="firstName"  [(ngModel)]="person.firstName" placeholder="enter first name">
           </p>
           <p>
               <label for="inputPassword">Last Name:</label>
-              <input type="text" name="lastName" [(ngModel)]="person.lastName" placeholder="enter last name">
+              <input required type="text" name="lastName" [(ngModel)]="person.lastName" placeholder="enter last name">
           </p>
           <p>
             <label for="inputPhoneNumber">Phone Number:</label>
-            <input type="text" name="phoneNumber" [(ngModel)]="person.phoneNumber" placeholder="enter password">
+            <input required type="text" name="phoneNumber" [(ngModel)]="person.phoneNumber" placeholder="enter password">
           </p>
           <p id="save-person-button">
-              <input type="submit" name="savePerson"  (click)="editPerson()" value="Edit Person">
+              <input type="submit" name="savePerson" (click)="editFrom.valid? editPerson(): null" value="Edit Person">
           </p>
       </form>
   </div>
