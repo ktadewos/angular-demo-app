@@ -23,4 +23,8 @@ export class PersonAddComponent implements OnInit {
     })
   }
 
+  cancel(){
+    window.history.back();
+  }
+
 }

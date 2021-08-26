@@ -41,4 +41,8 @@ export class PersonEditComponent implements OnInit {
     })
   }
 
+  cancel(){
+    window.history.back();
+  }
+
 }

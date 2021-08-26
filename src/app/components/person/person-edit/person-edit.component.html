@@ -30,6 +30,7 @@
           </p>
           <p id="save-person-button">
               <input type="submit" name="savePerson" [disabled]="!editFrom.form.valid" (click)="editPerson()" value="Edit Person">
+              <input style="margin-left: 10px;" type="submit" name="cancel" (click)="cancel()" value="Cancel">
           </p>
       </form>
   </div>
