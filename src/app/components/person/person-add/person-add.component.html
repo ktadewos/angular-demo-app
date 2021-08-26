@@ -1,23 +1,35 @@
-<div id="login">
+<div id="add-edit">
   <div id="login-box-header" >
       <span>Add Person</span>
   </div>
-  <div id="login-form">
-      <form action="#" method="post" #loginForm="ngForm" ngNativeValidate>
-          <p>
-              <label for="inputEmail">First Name:</label>
-              <input required type="text" name="inputEmail"  [(ngModel)]="person.firstName" placeholder="enter first name">
+  <div id="add-edit-form">
+      <form action="#" method="post" #editFrom="ngForm">
+        <p>
+              <label for="firstName">First Name:</label>
+              <input class="form-control" minlength="3" required type="text" #firstName="ngModel" id="firstName" name="firstName"  [(ngModel)]="person.firstName" placeholder="enter first name">
           </p>
+          <p [hidden]="firstName.valid || firstName.pristine"
+              class="alert alert-danger validationMessage">
+            Invalid first name
+        </p>
           <p>
-              <label for="inputPassword">Last Name:</label>
-              <input required type="text" name="inputPassword" [(ngModel)]="person.lastName" placeholder="enter last name">
+              <label for="lastName">Last Name:</label>
+              <input class="form-control" minlength="3" required type="text" #lastName="ngModel" id="lastName" name="lastName" [(ngModel)]="person.lastName" placeholder="enter last name">
           </p>
+          <p [hidden]="lastName.valid || lastName.pristine"
+              class="alert alert-danger validationMessage">
+            Invalid last name
+         </p>
           <p>
-            <label for="inputPhoneNumber">Phone Number:</label>
-            <input required type="text" name="inputPhoneNumber" [(ngModel)]="person.phoneNumber" placeholder="enter password">
+            <label for="phoneNumber">Phone Number:</label>
+            <input class="form-control" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" required type="text" #phoneNumber="ngModel" id="phoneNumber" name="phoneNumber" [(ngModel)]="person.phoneNumber" placeholder="enter phone number i.e XXX XXX XXXX">
+          </p>
+          <p [hidden]="phoneNumber.valid || phoneNumber.pristine"
+              class="alert alert-danger validationMessage">
+            Invalid phone number
           </p>
           <p id="save-person-button">
-              <input type="submit" name="savePerson"  (click)="loginForm.valid? addPerson(): null" value="Add Person">
+              <input type="submit" name="savePerson" [disabled]="!editFrom.form.valid" (click)="addPerson()" value="Add Person">
           </p>
       </form>
   </div>
