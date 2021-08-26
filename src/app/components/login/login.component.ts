@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.user);
     this.authService.login(this.user).subscribe(res => {
       if(res){
         window.localStorage.setItem("token",res);
@@ -33,10 +32,14 @@ export class LoginComponent implements OnInit {
         this.errormsg = '';
 
       }else{
-       this.errormsg ="invalid email or password!"
+        this.user.email = '';
+        this.user.password = '';
+       this.errormsg ="Invalid username or password!"
       }
     },err => {
-      this.errormsg ="invalid email or password!"
+      this.user.email = '';
+        this.user.password = '';
+      this.errormsg ="Invalid username or password!"
     })
   }
 

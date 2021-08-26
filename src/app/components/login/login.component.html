@@ -2,48 +2,38 @@
   <div id="header">
     <div id="system-identity">
       <h1 class="system-name"><a href="/">LOGO</a></h1>
-      <span class="detailed-name"><a href="/">demo system title</a></span>
+      <span class="detailed-name"><a href="/">Title Placeholder</a></span>
     </div>
   </div>
   <div id="middle">
-    <div id="login">
-      <div id="login-box-header">
-        <span>Please Login</span>
+<div id="login">
+      <div id="login-box-header" >
+          <span>Please Login</span>
       </div>
       <div id="login-form">
         <p id="errorMessage" *ngIf="errormsg">{{ errormsg }}</p>
-        <form action="#" method="post">
-          <p>
-            <label for="inputEmail3">Email:</label>
-            <input
-              type="email"
-              name="inputEmail3"
-              [(ngModel)]="user.email"
-              placeholder="Email"
-            />
-          </p>
-          <p>
-            <label for="inputPassword3">Password:</label>
-            <input
-              type="password"
-              name="inputPassword3"
-              [(ngModel)]="user.password"
-              placeholder="Password"
-            />
-          </p>
-          <p id="login-button">
-            <input
-              type="submit"
-              name="btnLogin"
-              (click)="login()"
-              value="Sign in"
-            />
-          </p>
-        </form>
+          <form action="#" method="post" #editFrom="ngForm">
+            <p>
+                  <label for="email">Username:</label>
+                  <input class="form-control" type="text" #email="ngModel" id="email" name="email"  [(ngModel)]="user.email" placeholder="enter user name">
+              </p>
+              <p>
+                  <label for="password">Password:</label>
+                  <input class="form-control" type="password" #password="ngModel" id="password" name="password" [(ngModel)]="user.password" placeholder="enter password">
+              </p>
+             <p id="login-button">
+              <input
+                type="submit"
+                name="btnLogin"
+                (click)="login()"
+                value="Sign in"
+              />
+            </p>
+          </form>
       </div>
     </div>
   </div>
-  <div id="footer">
-    <span>Copy Right</span>
-  </div>
+  <br>
 </div>
+
+
