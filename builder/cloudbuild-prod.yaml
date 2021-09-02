@@ -25,21 +25,21 @@ steps:
    'gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-latest',
    '.'
   ]
-# #step 4
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: [
-#    'set',
-#    'image',
-#    'deployment',
-#    'demo-fe-dep',
-#    'demo-fe-dep=gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-$COMMIT_SHA'
-#   ]
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=demo-cluster'
 #step 3
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'k8s/prod/deployment.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=demo-cluster'
+#step 4
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [
+   'set',
+   'image',
+   'deployment',
+   'demo-fe-dep-prod',
+   'demo-fe-dep-prod=gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-$COMMIT_SHA'
+  ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=demo-cluster'
