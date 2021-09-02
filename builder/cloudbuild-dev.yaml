@@ -38,7 +38,9 @@ steps:
    'image',
    'deployment',
    'demo-fe-dep-dev',
-   'demo-fe-dep-dev=gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-$COMMIT_SHA'
+   'demo-fe-dep-dev=gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-$COMMIT_SHA',
+    '--namespace',
+    'demo-dev-ns'
   ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
