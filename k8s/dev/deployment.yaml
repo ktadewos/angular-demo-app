@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-fe-dep-dev
-          image: "gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-latest"
+          image: "gcr.io/ml-console-dev/demo-fe-dep:develop-latest"
           # resources:
           #   requests:
           #     memory: "1000Mi"
