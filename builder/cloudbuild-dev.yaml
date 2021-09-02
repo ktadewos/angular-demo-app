@@ -46,5 +46,5 @@ steps:
 # push images to Google Container Registry with tags
 images: [
    'gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-$COMMIT_SHA',
-   'gcr.io/$PROJECT_ID/demo-fe-dep:latest'
+   'gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-latest'
   ]
