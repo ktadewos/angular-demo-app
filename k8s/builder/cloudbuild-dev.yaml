@@ -13,7 +13,7 @@ steps:
   entrypoint: 'bash'
   args: [
    '-c',
-   'docker pull gcr.io/$PROJECT_ID/demo-fe-dep:latest || exit 0'
+   'docker pull gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-latest || exit 0'
   ]
 #step 2
 - name: gcr.io/cloud-builders/docker
@@ -22,7 +22,7 @@ steps:
    '-t',
    'gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-$COMMIT_SHA',
    '-t',
-   'gcr.io/$PROJECT_ID/demo-fe-dep:latest',
+   'gcr.io/$PROJECT_ID/demo-fe-dep:$BRANCH_NAME-latest',
    '.'
   ]
 #step 3
