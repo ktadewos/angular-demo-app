@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-fe-dep-dev
+  namespace: demo-dev-ns
+spec:
+  selector:
+    matchLabels:
+      app: demo-fe-dep-dev
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo-fe-dep-dev
+        track: stable
+    spec:
+      containers:
+        - name: demo-fe-dep-dev
+          image: "gcr.io/ml-console-dev/demo-fe-image:latest"
+          # resources:
+          #   requests:
+          #     memory: "1000Mi"
+          #     cpu: "150m"
+          imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          ports:
+            - name: fe-port-dev
+              containerPort: 80
